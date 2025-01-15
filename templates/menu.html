@@ -1,0 +1,68 @@
+<!-- menu.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juste Prix - Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="fade-in day-mode">
+    {% include 'header.html' %}
+    <div id="particles-js"></div>
+
+    <div class="modal fade" id="difficultyModal" tabindex="-1" aria-labelledby="difficultyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="difficultyModalLabel">Choisissez la difficulté</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button class="btn btn-secondary difficulty-btn" data-difficulty="facile">Facile</button>
+                    <button class="btn btn-secondary difficulty-btn" data-difficulty="normal">Normal</button>
+                    <button class="btn btn-secondary difficulty-btn" data-difficulty="difficile">Difficile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <img src="static/images/logo.png" alt="Logo" class="logo">
+        <p class="menu-subtitle">Devinez le prix juste et gagnez des prix incroyables !</p>
+        <div class="menu">
+            <a href="#" class="button" id="play-button">Participer au jeu</a>
+            <a href="/add-item" class="button">Ajouter un article</a>
+            <a href="#" class="button" id="toggle-score-button">Voir le classement</a>
+        </div>
+    </div>
+
+    <div class="score-table-container" id="score-table-container">
+        <table class="score-table">
+            <tr>
+                <th>Identifiant de la partie</th>
+                <th>Nom du produit</th>
+                <th>Nom du joueur</th>
+                <th>Nombre d'essais</th>
+            </tr>
+            {% for score in scores %}
+            <tr>
+                <td>{{ score[0] }}</td>
+                <td class="product-name" onclick="toggleExpand(this)">{{ score[1] }}</td>
+                <td>{{ score[2] }}</td>
+                <td>{{ score[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="static/js/particles.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #c6deff, #4a90e2, #ffe193);
+    color: white;
+}
+
+.menu-container {
+    text-align: center;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    backdrop-filter: blur(6px);
+}
+
+.logo {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    animation: fadeInDown 1s ease-out;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.button {
+    padding: 15px 20px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: 0.4s;
+    border-radius: 8px;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+.button:hover {
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.menu-subtitle {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+    color: #ffffff;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+body.night-mode {
+    background: linear-gradient(135deg, #2c3e50, #34495e, #1c2833);
+    color: #ecf0f1;
+}
+
+body.night-mode .menu-container {
+    text-align: center;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);    *
+    padding: 50px;
+    backdrop-filter: blur(6px);
+}
+
+body.night-mode .logo {
+    filter: brightness(0.8);
+}
+
+body.night-mode .menu-subtitle {
+    color: #bdc3c7;
+}
+
+body.night-mode .menu .button {
+    padding: 15px 20px;
+    border: 2px solid #fbd15b;
+    color: #fbd15b;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: 0.4s;
+    border-radius: 8px;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+body.night-mode .menu .button:hover {
+    color: #ffffff;
+    background-color: #fbd15b;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.score-table-container {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+   backdrop-filter: blur(6px);
+}
+.score-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.score-table th, .score-table td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    text-align: left;
+}
+.score-table th {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.score-table .product-name {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+.score-table .product-name.expanded {
+    white-space: normal;
+    overflow: visible;
+}

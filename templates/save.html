@@ -1,0 +1,33 @@
+<!-- save.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juste Prix - S'enregistrer</title>
+    <link rel="stylesheet" href="static/css/menu.css">
+    <style>
+        body, .menu-container {
+            color: white;
+        }
+        .message {
+            color: #FFD06CFF;
+        }
+    </style>
+</head>
+<body class="fade-in day-mode">
+    {% include 'header.html' %}
+    <div id="particles-js"></div>
+    <div class="menu-container">
+        <h2 class="message">Félicitations !</h2>
+        <p class="message">Vous avez réussi en {{ tries }} essais.</p>
+        <form action="/save" method="post" class="form-group">
+            <label for="name" class="form-label">Entrez votre nom :</label>
+            <input type="text" id="name" name="name" required class="form-control mx-auto">
+            <button type="submit" class="btn btn-primary mt-3">Soumettre</button>
+        </form>
+    </div>
+    <script src="static/js/particles.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html>
